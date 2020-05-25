@@ -15,7 +15,7 @@ class AddUser extends Component{
 
 	handleClick = event => {
 		event.preventDefault();
-		this.props.addUser();
+		this.props.addUser(this.state);
 	}
 
 	isEmpty = () => {
