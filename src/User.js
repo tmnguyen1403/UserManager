@@ -1,16 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const User = (props) => {
-	const {userName, info} = props;
+class User extends Component {
 
-	return (
-		<li key={userName}>
-			<ul>
-				<li>User Name: {userName}</li>
-				<li>Number of played games: {info.games}</li>
-			</ul>
-		</li>
-	)
+	state = {
+		hideGames: false,
+	}
+
+	toggleHide = () => {
+		this.setState(
+			{
+				hideGames: !this.state.hideGames
+			}
+		);
+	}
+
+	render() {
+		const {userName, info} = this.props;
+		const gameInfo = this.state.hideGames ? "***" : info.games;
+		const hideButtonMsg = this.state.hideGames ?
+			"Show the Number of Games Played" :
+			"Hide the Number of Games Played";
+
+		return (
+			<li key={userName}>
+				<ul>
+					<li>User Name: {userName}</li>
+					<li>Number of played games: {gameInfo}</li>
+				</ul>
+				<button onClick={this.toggleHide}>
+					{hideButtonMsg}
+				</button>
+			</li>
+		);
+	}
 }
 
 export default User;
