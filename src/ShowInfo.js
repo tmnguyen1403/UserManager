@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ShowInfo = (props) => {
 	return (
@@ -6,6 +7,10 @@ const ShowInfo = (props) => {
 			{props.message}
 		</span>
 	)
+}
+
+ShowInfo.propTypes = {
+	message: PropTypes.string
 }
 
 export default ShowInfo;

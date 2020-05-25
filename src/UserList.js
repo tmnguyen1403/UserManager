@@ -1,5 +1,6 @@
 import React from 'react';
 import User from './User';
+import PropTypes from 'prop-types';
 
 const UserList = (props) => {
 	const {users} = props;
@@ -9,7 +10,7 @@ const UserList = (props) => {
 	};
 
 	return (
-		<React.Fragment disable={true}>
+		<React.Fragment>
 			{hasUser() && <h2> "User's Infos"</h2>}
 			<ol>
 				{userNames.map(
@@ -21,4 +22,7 @@ const UserList = (props) => {
 	)
 }
 
+UserList.propTypes = {
+		users: PropTypes.object.isRequired,
+}
 export default UserList;

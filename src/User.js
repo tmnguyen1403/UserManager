@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class User extends Component {
+	static propTypes = {
+		userName: PropTypes.string.isRequired,
+		info: PropTypes.object.isRequired
+	}
 
 	state = {
 		hideGames: false,
@@ -24,10 +29,10 @@ class User extends Component {
 		return (
 			<li key={userName}>
 				<ul>
-					<li>User Name: {userName}</li>
-					<li>Number of played games: {gameInfo}</li>
+					<li key={userName}>User Name: {userName}</li>
+					<li key={userName+"1"}>Number of played games: {gameInfo}</li>
 				</ul>
-				<button onClick={this.toggleHide}>
+				<button className="smallButton" onClick={this.toggleHide}>
 					{hideButtonMsg}
 				</button>
 			</li>

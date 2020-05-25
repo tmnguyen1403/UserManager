@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ShowError = (props) => {
 	return (
@@ -6,6 +7,10 @@ const ShowError = (props) => {
 			{props.message}
 		</span>
 	)
+}
+
+ShowError.propTypes = {
+	message: PropTypes.string
 }
 
 export default ShowError;
